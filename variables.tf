@@ -3,29 +3,6 @@ variable "region" {
   default     = "us-east-1"
 }
 
-# SET THESE ROLES TO YOUR TERRAFORM ROLES PER ACCOUNT
-variable "role_name" {
-  description = "Role ARN"
-  type        = map(string)
-
-  default = {
-    dev  = "TerraformTester"
-    uat  = "TerraformTester"
-    prod = "TerraformTester"
-  }
-}
-
-variable "admin_iam_group" {
-  description = "Group name"
-  type        = map(string)
-
-  default = {
-    dev  = "TerraformTesters"
-    uat  = "TerraformTesters"
-    prod = "TerraformTesters"
-  }
-}
-
 variable "env" {
   description = "Environment"
   type        = string
@@ -41,7 +18,6 @@ variable "availability_zones" {
 
   default = {
     dev  = ["us-east-1a", "us-east-1b"]
-    uat  = ["us-east-1a", "us-east-1b"]
     prod = ["us-east-1a", "us-east-1b", "us-east-1c"]
   }
 }
@@ -102,7 +78,6 @@ variable "asg_min_size" {
 
   default = {
     dev  = 1
-    uat  = 1 # 3
     prod = 3
   }
 }
@@ -113,7 +88,6 @@ variable "asg_desired_capacity" {
 
   default = {
     dev  = 1 # 2
-    uat  = 1 # 3
     prod = 3
   }
 }
@@ -124,7 +98,6 @@ variable "on_demand_base_capacity" {
 
   default = {
     dev  = 0
-    uat  = 0 #1
     prod = 3
   }
 }
@@ -135,7 +108,6 @@ variable "on_demand_percentage_above_base_capacity" {
 
   default = {
     dev  = 0
-    uat  = 0
     prod = 25
   }
 }
@@ -146,7 +118,6 @@ variable "asg_max_size" {
 
   default = {
     dev  = 2
-    uat  = 2 #9
     prod = 9
   }
 }
